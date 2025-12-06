@@ -8,7 +8,7 @@ void main() {
 public void NumberTeller(int num){
     if (num % 2 == 0 ){
         IO.println("It is Even.");
-    } else if (num % 2 != 0) {
+    } else {
         IO.println("It is Odd.");
     }
 }
