@@ -1,14 +1,18 @@
 
 void main() {
+// Create a method that accepts an array of integers and returns the largest number.
 
-    NumberTeller(23);
+    IO.println("the biggest number is: " + GetLargestSum(new int[]{1,55,32,95,123}));
 
 }
 
-public void NumberTeller(int num){
-    if (num % 2 == 0 ){
-        IO.println("It is Even.");
-    } else {
-        IO.println("It is Odd.");
+private int GetLargestSum(int[] nums){
+    int biggestNum = 0;
+
+    for (int num : nums) {
+        if (num > biggestNum) {
+            biggestNum = num;
+        }
     }
+    return biggestNum;
 }
