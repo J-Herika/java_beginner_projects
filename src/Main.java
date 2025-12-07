@@ -1,18 +1,28 @@
 
 void main() {
-// Create a method that accepts an array of integers and returns the largest number.
+// Write a loop to print all prime numbers from 1–100.
 
-    IO.println("the biggest number is: " + GetLargestSum(new int[]{1,55,32,95,123}));
+    for (int i = 1; i < 100; i++) {
+        PrimeNumbers(i);
+    }
+
 
 }
 
-private int GetLargestSum(int[] nums){
-    int biggestNum = 0;
 
-    for (int num : nums) {
-        if (num > biggestNum) {
-            biggestNum = num;
+public void PrimeNumbers(int num){
+    if(num <= 1){
+        return;
+    }else if(num == 2){
+        IO.println(num);
+    } else if (num % 2 == 0) {
+        return;
+    }
+
+    for(int i = 3; i * i <= num; i += 3){
+        if(num % i == 0){
+            return;
         }
     }
-    return biggestNum;
+    IO.println(num);
 }
