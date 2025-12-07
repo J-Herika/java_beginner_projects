@@ -1,28 +1,19 @@
 
 void main() {
-// Write a loop to print all prime numbers from 1–100.
-
-    for (int i = 1; i < 100; i++) {
-        PrimeNumbers(i);
-    }
-
+// Make a method that reverses a string without using built-in reverse functions.
+    String anime = "Jujutsu Kaisen";
+    IO.println("Original String: " + anime);
+    IO.println("Reversed String: " + reverseString(anime));
 
 }
 
 
-public void PrimeNumbers(int num){
-    if(num <= 1){
-        return;
-    }else if(num == 2){
-        IO.println(num);
-    } else if (num % 2 == 0) {
-        return;
+public String reverseString(String string){
+    StringBuilder reversedStr = new StringBuilder();
+
+    for(int i = string.length() - 1; i >= 0; i--){
+           reversedStr.append(string.charAt(i));
     }
 
-    for(int i = 3; i * i <= num; i += 3){
-        if(num % i == 0){
-            return;
-        }
-    }
-    IO.println(num);
+    return reversedStr.toString();
 }
