@@ -37,12 +37,12 @@ public class Character{
     }
 
     public void card(){
-        double prettyHealth = Math.round(this.attackDamage * 100.0) / 100.0;
+        double prettyDamage = Math.round(this.attackDamage * 100.0) / 100.0;
         IO.println("-----Adventurer Card-----");
         IO.println("Name: " + this.name);
         IO.println("level: " + this.level);
         IO.println("Current Health: " + this.health);
-        IO.println("Attack Power: " + prettyHealth);
+        IO.println("Attack Power: " + prettyDamage);
         IO.println("-------------------------");
     }
 
