@@ -1,15 +1,12 @@
 
 void main() {
 
-//    StudentGrade student01 = new StudentGrade(92);
-//    IO.println(student01.getGrade());
-//    IO.println(student01.setGrade(99.8));
-//    IO.println(student01.getGrade());
-
-//    Animal dog = new Animal("Bark!");
-//    Animal cat = new Animal("Meow..");
-//
-//    IO.println(dog.makeSound());
-//    IO.println(cat.makeSound());
+    Archer helen = new Archer(78,"Helen shard");
+    HealthPotion healthPotion = new HealthPotion();
+    helen.card();
+    helen.takeDamage(2);
+    IO.println(helen.health);
+    healthPotion.consume(helen);
+    IO.println(helen.health);
 
 }
