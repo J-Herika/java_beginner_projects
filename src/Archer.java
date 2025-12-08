@@ -1,6 +1,6 @@
 public class Archer extends Character {
 
-  public Archer(int level,String name){
+   Archer(int level,String name){
       super(level,name);
   }
 

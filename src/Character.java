@@ -8,18 +8,18 @@ public class Character{
         this.level = level;
         this.name = name;
         health = 100;
-        attackDamage = level * 10.3;
+        attackDamage = level ;
     }
 
     public void takeDamage(double damage){
         this.health -= damage;
         if(health < 0) health = 0;
     }
-    public void useitem(Consumable item){
+    public void useItem(Consumable item){
         item.consume(this);
     }
 
-    public void setHealth(double addedHealth){
+    public void health(double addedHealth){
         this.health += addedHealth;
         if(health > 100) health = 100;
     }
