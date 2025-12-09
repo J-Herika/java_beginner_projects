@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UserManager {
     private final ArrayList<String> bannedNames = new ArrayList<>();
-    private final HashMap<Integer, String> activeUsers = new HashMap<>();
+    private final HashMap<Integer, User> activeUsers = new HashMap<>();
 
     public UserManager() {
         // Pre-fill banned list
@@ -31,9 +31,10 @@ public class UserManager {
             System.out.println("Error: ID " + id + " is already taken.");
             return;
         }
+        User newUser = new User(id,name);
 
         // 3. Save to "Database"
-        activeUsers.put(id, name);
+        activeUsers.put(id, newUser);
         System.out.println("Success: Registered " + name);
     }
 
@@ -68,25 +69,16 @@ public class UserManager {
         return bannedNames;
     }
 
-    public void removeBannedUsers(){
-        ArrayList<Integer> tempList = new ArrayList<>();
-        ArrayList<String> tempListNames = new ArrayList<>();
-        for(int id : activeUsers.keySet()){
-            if(bannedNames.contains(activeUsers.get(id))) {
-                tempList.add(id);
-                tempListNames.add(activeUsers.get(id));
-            }
-        }
-        IO.print("Removed these banned users: ");
-        for(String name : tempListNames){
-            IO.print(" " + name + ",");
-        }
+//    public void removeBannedUsers(){
+//        activeUsers.entrySet().removeIf(entry -> bannedNames.contains(entry.getValue()));
+//        IO.print("banned users removed.");
+//
+//    }
 
-        for(int id : tempList){
-            activeUsers.remove(id);
-        }
+    public void countSafeUsers(){
+        long count = activeUsers.values().stream().filter(name -> !bannedNames.contains(name)).count();
+        IO.println(count);
     }
-
 
 
 
@@ -96,3 +88,5 @@ public class UserManager {
         else IO.print("Error User is not registered.");
     }
 }
+
+record User(int id,String name){}
